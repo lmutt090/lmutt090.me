@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lmutt090</title>
+    <style>
+        /* General body styles */
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #0f0;
+        }
+
+        /* Header styling */
+        header {
+            background: #111;
+            color: #0f0;
+            padding: 1rem 0;
+            text-align: center;
+            border-bottom: 1px solid #0f0;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        /* Terminal-style container */
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            background: #111;
+            padding: 1.5rem;
+            border-radius: 5px;
+            box-shadow: inset 0 0 10px rgba(0, 255, 0, 0.5);
+            border: 1px solid #0f0;
+        }
+
+        /* Make links look like normal text */
+        a {
+            color: inherit;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* List styling */
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            background: #222;
+            margin: 0.5rem 0;
+            padding: 0.5rem;
+            border-radius: 5px;
+        }
+
+        /* Image adjustments */
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer styling */
+        footer {
+            text-align: center;
+            padding: 1rem 0;
+            background: #111;
+            color: #0f0;
+            margin-top: 2rem;
+            border-top: 1px solid #0f0;
+        }
+
+        /* Popup styling */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #111;
+            color: #0f0;
+            padding: 1.5rem;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+            border: 1px solid #0f0;
+            z-index: 1000;
+            text-align: center;
+        }
+
+        .popup button {
+            background: #0f0;
+            color: #000;
+            border: none;
+            padding: 0.5rem 1rem;
+            margin: 0.5rem;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+
+        .popup button:hover {
+            background: #00ff80;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 999;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Lmutt090</h1>
+        <p>Also known as <span id="username">Lucasgames8957</span></p>
+    </header>
+    <div class="container">
+        <img src="https://github.com/AetherX-Discord-bot/AetherX-Discord-bot.github.io/blob/main/Credits/coustompictures/0fb0950164ed14c57276b0dc2486a700.png" alt="AetherX Banner">
+
+        <h2>🎮 Gaming Profiles</h2>
+        <p>
+            - Xbox: <a onclick="showPopup('Lucasgames8957')">Lucasgames8957</a><br>
+            - Nintendo Switch: <a onclick="showPopup('Lmutt090')">Lmutt090</a>
+        </p>
+
+        <h2>📌 What I'm Currently Working On</h2>
+        <p>I am actively contributing to and maintaining the following for AetherX:</p>
+        <ul>
+            <li><strong>Website Development</strong>: Designing and optimizing the <a href="https://github.com/AetherX-Discord-bot/AetherX-Discord-bot.github.io">AetherX GitHub Pages</a>.</li>
+            <li><strong>Database Management</strong>: Creating and managing the database systems for AetherX.</li>
+            <li><strong>Discord Bot</strong>: Supporting the <a href="https://github.com/AetherX-Discord-bot/Discord-Bot">AetherX Discord Bot</a>, a multipurpose, open-source bot.</li>
+        </ul>
+
+        <h2>🌟 Repositories I'm Interested In</h2>
+        <ul>
+            <li><a href="https://github.com/Vendicated/Vencord">Vencord</a>: The cutest Discord client mod.</li>
+            <li><a href="https://github.com/Pryaxis/TShock">TShock</a>: ☕️⚡️ TShock provides Terraria servers with server-side characters, anti-cheat, and community management tools.</li>
+            <li><a href="https://github.com/JustArchiNET/ArchiSteamFarm">ArchiSteamFarm</a>: A C# application for farming Steam cards from multiple accounts simultaneously.</li>
+        </ul>
+
+        <h2>🌟 Areas of Interest</h2>
+        <p>I am passionate about:</p>
+        <ul>
+            <li>Website and database development for community-driven solutions.</li>
+            <li>Enhancing Discord bots and client mods.</li>
+            <li>Developing efficient tools for server management and automation.</li>
+            <li>Learning SQL and Python.</li>
+        </ul>
+        <p>Feel free to explore my repositories and reach out for collaboration opportunities!</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 lmutt090. All rights reserved.</p>
+    </footer>
+
+    <!-- Popup and overlay elements -->
+    <div class="overlay" id="overlay" onclick="closePopup()"></div>
+    <div class="popup" id="popup">
+        <p>Do you want to view my Discord profile (ID: <strong>1286383453016686705</strong>)?</p>
+        <button onclick="redirectToDiscord()">Yes</button>
+        <button onclick="closePopup()">Close</button>
+    </div>
+
+    <script>
+        function showPopup(username) {
+            const popup = document.getElementById('popup');
+            const overlay = document.getElementById('overlay');
+            popup.style.display = 'block';
+            overlay.style.display = 'block';
+        }
+
+        function closePopup() {
+            const popup = document.getElementById('popup');
+            const overlay = document.getElementById('overlay');
+            popup.style.display = 'none';
+            overlay.style.display = 'none';
+        }
+
+        function redirectToDiscord() {
+            window.location.href = "https://discord.com/users/1286383453016686705";
+        }
+    </script>
+</body>
+
+</html>
