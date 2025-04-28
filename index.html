@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lmutt090</title>
     <style>
-        /* General body styles */
         body {
             font-family: 'Courier New', Courier, monospace;
             margin: 0;
@@ -14,21 +13,26 @@
             background-color: #000;
             color: #0f0;
         }
-
-        /* Header styling */
         header {
             background: #111;
             color: #0f0;
             padding: 1rem 0;
             text-align: center;
             border-bottom: 1px solid #0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
         }
-
+        header img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 2px solid #0f0;
+        }
         header h1 {
             margin: 0;
         }
-
-        /* Terminal-style container */
         .container {
             max-width: 800px;
             margin: 2rem auto;
@@ -38,39 +42,29 @@
             box-shadow: inset 0 0 10px rgba(0, 255, 0, 0.5);
             border: 1px solid #0f0;
         }
-
-        /* Make links look like normal text */
         a {
             color: inherit;
             text-decoration: none;
             cursor: pointer;
         }
-
         a:hover {
             text-decoration: underline;
         }
-
-        /* List styling */
         ul {
             list-style: none;
             padding: 0;
         }
-
         ul li {
             background: #222;
             margin: 0.5rem 0;
             padding: 0.5rem;
             border-radius: 5px;
         }
-
-        /* Image adjustments */
         img {
             max-width: 100%;
             height: auto;
             margin-bottom: 1rem;
         }
-
-        /* Footer styling */
         footer {
             text-align: center;
             padding: 1rem 0;
@@ -79,8 +73,6 @@
             margin-top: 2rem;
             border-top: 1px solid #0f0;
         }
-
-        /* Popup styling */
         .popup {
             display: none;
             position: fixed;
@@ -96,7 +88,6 @@
             z-index: 1000;
             text-align: center;
         }
-
         .popup button {
             background: #0f0;
             color: #000;
@@ -106,11 +97,9 @@
             cursor: pointer;
             border-radius: 3px;
         }
-
         .popup button:hover {
             background: #00ff80;
         }
-
         .overlay {
             display: none;
             position: fixed;
@@ -126,6 +115,7 @@
 
 <body>
     <header>
+        <img src="https://www.gravatar.com/avatar/6ac3077d271f2434bbf8a91c6044ce6f?s=200" alt="Gravatar Avatar">
         <h1>Lmutt090</h1>
         <p>Also known as <span id="username">Lucasgames8957</span></p>
     </header>
@@ -149,7 +139,7 @@
         <h2>Repositories I'm Interested In</h2>
         <ul>
             <li><a href="https://github.com/Vendicated/Vencord">Vencord</a>: The cutest Discord client mod.</li>
-            <li><a href="https://github.com/Pryaxis/TShock">TShock</a>: ☕️⚡️ TShock provides Terraria servers with server-side characters, anti-cheat, and community management tools.</li>
+            <li><a href="https://github.com/Pryaxis/TShock">TShock</a>: TShock provides Terraria servers with server-side characters, anti-cheat, and community management tools.</li>
             <li><a href="https://github.com/JustArchiNET/ArchiSteamFarm">ArchiSteamFarm</a>: A C# application for farming Steam cards from multiple accounts simultaneously.</li>
         </ul>
 
@@ -168,7 +158,6 @@
         <p>&copy; 2025 lmutt090. All rights reserved.</p>
     </footer>
 
-    <!-- Popup and overlay elements -->
     <div class="overlay" id="overlay" onclick="closePopup()"></div>
     <div class="popup" id="popup">
         <p>Do you want to view my Discord profile (ID: <strong>1286383453016686705</strong>)?</p>
