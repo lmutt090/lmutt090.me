@@ -4,61 +4,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lmutt090</title>
+    <title>Lmutt090 - Terminal</title>
     <style>
         body {
             font-family: 'Courier New', Courier, monospace;
             margin: 0;
             padding: 0;
             background-color: #000;
-            color: #0f0;
+            color: #00FF00;
         }
         header {
-            background: #111;
-            color: #0f0;
-            padding: 1rem 0;
-            text-align: center;
-            border-bottom: 1px solid #0f0;
+            background: #000;
+            color: #00FF00;
+            padding: 1rem;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 0.5rem;
+            border-bottom: 2px solid #00FF00;
         }
         header img {
-            width: 80px;
-            height: 80px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
-            border: 2px solid #0f0;
+            border: 2px solid #00FF00;
+            margin-bottom: 0.5rem;
         }
-        header h1 {
+        header h1, header p {
             margin: 0;
+            padding: 0.2rem 0;
         }
         .container {
             max-width: 800px;
             margin: 2rem auto;
-            background: #111;
-            padding: 1.5rem;
-            border-radius: 5px;
-            box-shadow: inset 0 0 10px rgba(0, 255, 0, 0.5);
-            border: 1px solid #0f0;
+            background: #000;
+            padding: 1rem;
+            border-left: 2px solid #00FF00;
+            border-right: 2px solid #00FF00;
         }
         a {
-            color: inherit;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        a:hover {
+            color: #00FF00;
             text-decoration: underline;
+            cursor: pointer;
         }
         ul {
             list-style: none;
             padding: 0;
         }
         ul li {
-            background: #222;
-            margin: 0.5rem 0;
-            padding: 0.5rem;
-            border-radius: 5px;
+            padding: 0.5rem 0;
         }
         img {
             max-width: 100%;
@@ -67,11 +60,11 @@
         }
         footer {
             text-align: center;
-            padding: 1rem 0;
-            background: #111;
-            color: #0f0;
-            margin-top: 2rem;
-            border-top: 1px solid #0f0;
+            padding: 1rem;
+            background: #000;
+            color: #00FF00;
+            border-top: 2px solid #00FF00;
+            font-size: 0.9rem;
         }
         .popup {
             display: none;
@@ -79,26 +72,24 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background: #111;
-            color: #0f0;
+            background: #000;
+            color: #00FF00;
             padding: 1.5rem;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
-            border: 1px solid #0f0;
+            border: 2px solid #00FF00;
             z-index: 1000;
             text-align: center;
         }
         .popup button {
-            background: #0f0;
+            background: #00FF00;
             color: #000;
             border: none;
             padding: 0.5rem 1rem;
             margin: 0.5rem;
             cursor: pointer;
-            border-radius: 3px;
+            font-weight: bold;
         }
         .popup button:hover {
-            background: #00ff80;
+            background: #00cc00;
         }
         .overlay {
             display: none;
@@ -107,15 +98,28 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.9);
             z-index: 999;
+        }
+        @media (max-width: 600px) {
+            header img {
+                width: 50px;
+                height: 50px;
+            }
+            .container {
+                margin: 1rem;
+                padding: 1rem;
+            }
+            footer {
+                font-size: 0.8rem;
+            }
         }
     </style>
 </head>
 
 <body>
     <header>
-        <img src="https://www.gravatar.com/avatar/b5266e4f47f9b7c99411b05024d17b4c?s=200" alt="Gravatar Avatar">
+        <img src="https://www.gravatar.com/avatar/6ac3077d271f2434bbf8a91c6044ce6f?s=200" alt="Gravatar Avatar">
         <h1>Lmutt090</h1>
         <p>Also known as <span id="username">Lucasgames8957</span></p>
     </header>
@@ -124,34 +128,32 @@
 
         <h2>Gaming Profiles</h2>
         <p>
-            - Xbox: <a onclick="showPopup('Lucasgames8957')">Lucasgames8957</a><br>
-            - Nintendo Switch: <a onclick="showPopup('Lmutt090')">Lmutt090</a>
+            Xbox: <a onclick="showPopup('Lucasgames8957')">Lucasgames8957</a><br>
+            Nintendo Switch: <a onclick="showPopup('Lmutt090')">Lmutt090</a>
         </p>
 
         <h2>What I'm Currently Working On</h2>
         <p>I am actively contributing to and maintaining the following for AetherX:</p>
         <ul>
-            <li><strong>Website Development</strong>: Designing and optimizing the <a href="https://github.com/AetherX-Discord-bot/AetherX-Discord-bot.github.io">AetherX GitHub Pages</a>.</li>
-            <li><strong>Database Management</strong>: Creating and managing the database systems for AetherX.</li>
-            <li><strong>Discord Bot</strong>: Supporting the <a href="https://github.com/AetherX-Discord-bot/Discord-Bot">AetherX Discord Bot</a>, a multipurpose, open-source bot.</li>
+            <li><strong>Website Development</strong>: <a href="https://github.com/AetherX-Discord-bot/AetherX-Discord-bot.github.io">AetherX GitHub Pages</a>.</li>
+            <li><strong>Database Management</strong>: AetherX Database Systems.</li>
+            <li><strong>Discord Bot</strong>: <a href="https://github.com/AetherX-Discord-bot/Discord-Bot">AetherX Discord Bot</a>.</li>
         </ul>
 
         <h2>Repositories I'm Interested In</h2>
         <ul>
-            <li><a href="https://github.com/Vendicated/Vencord">Vencord</a>: The cutest Discord client mod.</li>
-            <li><a href="https://github.com/Pryaxis/TShock">TShock</a>: TShock provides Terraria servers with server-side characters, anti-cheat, and community management tools.</li>
-            <li><a href="https://github.com/JustArchiNET/ArchiSteamFarm">ArchiSteamFarm</a>: A C# application for farming Steam cards from multiple accounts simultaneously.</li>
+            <li><a href="https://github.com/Vendicated/Vencord">Vencord</a></li>
+            <li><a href="https://github.com/Pryaxis/TShock">TShock</a></li>
+            <li><a href="https://github.com/JustArchiNET/ArchiSteamFarm">ArchiSteamFarm</a></li>
         </ul>
 
         <h2>Areas of Interest</h2>
-        <p>I am passionate about:</p>
         <ul>
-            <li>Website and database development for community-driven solutions.</li>
-            <li>Enhancing Discord bots and client mods.</li>
-            <li>Developing efficient tools for server management and automation.</li>
-            <li>Learning SQL and Python.</li>
+            <li>Community-driven development.</li>
+            <li>Discord bots and client mods.</li>
+            <li>Server management and automation.</li>
+            <li>SQL and Python learning.</li>
         </ul>
-        <p>Feel free to explore my repositories and reach out for collaboration opportunities!</p>
     </div>
 
     <footer>
