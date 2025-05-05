@@ -4,29 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lmutt090 - Terminal</title>
+    <title>Lmutt090</title>
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Courier New', Courier, monospace;
+            font-family: 'MedievalSharp', cursive;
             margin: 0;
             padding: 0;
-            background-color: #000;
-            color: #00FF00;
+            background-color: #0a0e1a;
+            color: #9ad0ec;
         }
         header {
-            background: #000;
-            color: #00FF00;
+            background: #0a0e1a;
+            color: #9ad0ec;
             padding: 1rem;
             display: flex;
             flex-direction: column;
             align-items: center;
-            border-bottom: 2px solid #00FF00;
+            border-bottom: 2px solid #4ba3c7;
         }
         header img {
             width: 60px;
             height: 60px;
             border-radius: 50%;
-            border: 2px solid #00FF00;
+            border: 2px solid #4ba3c7;
             margin-bottom: 0.5rem;
         }
         header h1, header p {
@@ -36,13 +37,13 @@
         .container {
             max-width: 800px;
             margin: 2rem auto;
-            background: #000;
+            background: #0a0e1a;
             padding: 1rem;
-            border-left: 2px solid #00FF00;
-            border-right: 2px solid #00FF00;
+            border-left: 2px solid #4ba3c7;
+            border-right: 2px solid #4ba3c7;
         }
         a {
-            color: #00FF00;
+            color: #88c6ff;
             text-decoration: underline;
             cursor: pointer;
         }
@@ -57,13 +58,14 @@
             max-width: 100%;
             height: auto;
             margin-bottom: 1rem;
+            border: 2px solid #4ba3c7;
         }
         footer {
             text-align: center;
             padding: 1rem;
-            background: #000;
-            color: #00FF00;
-            border-top: 2px solid #00FF00;
+            background: #0a0e1a;
+            color: #9ad0ec;
+            border-top: 2px solid #4ba3c7;
             font-size: 0.9rem;
         }
         .popup {
@@ -72,16 +74,16 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background: #000;
-            color: #00FF00;
+            background: #1c2333;
+            color: #9ad0ec;
             padding: 1.5rem;
-            border: 2px solid #00FF00;
+            border: 2px solid #4ba3c7;
             z-index: 1000;
             text-align: center;
         }
         .popup button {
-            background: #00FF00;
-            color: #000;
+            background: #4ba3c7;
+            color: #0a0e1a;
             border: none;
             padding: 0.5rem 1rem;
             margin: 0.5rem;
@@ -89,7 +91,7 @@
             font-weight: bold;
         }
         .popup button:hover {
-            background: #00cc00;
+            background: #3790b6;
         }
         .overlay {
             display: none;
@@ -98,7 +100,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(10, 14, 26, 0.9);
             z-index: 999;
         }
         @media (max-width: 600px) {
