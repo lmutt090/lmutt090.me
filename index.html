@@ -224,7 +224,7 @@
                 sssender = "Unknown/Anonymized Person"
             }
 
-            const ws = new WebSocket('wss://nubnub.loca.it');
+            const ws = new WebSocket('wss://nubnub.loca.lt');
 
             ws.onopen = function () {
                 ws.send(JSON.stringify({ type: 'feedback', smessage: message, msender: sssender }));
