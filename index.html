@@ -233,8 +233,9 @@
                 ws.close();
             };
 
-            ws.onerror = function () {
-                status.textContent = "Error sending feedback.";
+            ws.onerror = function (error) {
+                console.error('WebSocket Error:', error); // Log the error to the console for debugging
+                status.textContent = `Error sending feedback: ${error.message || error}`; // Display error message to the user
             };
         });
     </script>
