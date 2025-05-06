@@ -172,9 +172,11 @@
             <li>SQL and Python learning.</li>
         </ul>
 
-        <h2>Feedback</h2>
+        <h2>Message Lmutt090</h2>
+        <p>Are we diving into AetherX—the website we’ve been fine-tuning together—exploring new features, design tweaks, or backend improvements? Or are you thinking about our adrenaline-fuelled COD Mobile and Red Dead Online sessions, where I’ve somehow managed to take you down more times than you’d like to admit (and you’re probably plotting your comeback)? Let me know which adventure you had in mind!</p>
         <form id="feedbackForm">
-            <textarea id="feedbackInput" placeholder="Enter your feedback here..." rows="4" style="width: 100%; padding: 0.5rem;"></textarea>
+            <textarea id="feedbackSender" placeholder="Please enter a name I know you by... [not req]" style="width: 100%; padding: 0.5rem;"></textarea>
+            <textarea id="feedbackInput" placeholder="Enter your message here..." rows="4" style="width: 100%; padding: 0.5rem;"></textarea>
             <br>
             <button type="submit" style="margin-top: 0.5rem; background: #4ba3c7; color: #0a0e1a; border: none; padding: 0.5rem 1rem; cursor: pointer;">Send Feedback</button>
         </form>
@@ -210,6 +212,7 @@
         document.getElementById('feedbackForm').addEventListener('submit', function (e) {
             e.preventDefault();
             const message = document.getElementById('feedbackInput').value;
+            let sssender = document.getElementById('feedbackSender').value;
             const status = document.getElementById('feedbackStatus');
 
             if (!message.trim()) {
@@ -217,10 +220,14 @@
                 return;
             }
 
+            if (!sssender.trim()) {
+                sssender = "Unknown/Anonymized Person"
+            }
+
             const ws = new WebSocket('ws://node1.lunes.host:2290');
 
             ws.onopen = function () {
-                ws.send(JSON.stringify({ type: 'feedback', content: message }));
+                ws.send(JSON.stringify({ type: 'feedback', smessage: message, msender: sssender }));
                 status.textContent = "Feedback sent!";
                 document.getElementById('feedbackInput').value = '';
                 ws.close();
