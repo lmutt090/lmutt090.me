@@ -14,6 +14,7 @@
             padding: 0;
             background-color: #0a0e1a;
             color: #9ad0ec;
+            transition: background-color 0.5s ease, color 0.5s ease;
         }
         header {
             background: #0a0e1a;
@@ -23,6 +24,7 @@
             flex-direction: column;
             align-items: center;
             border-bottom: 2px solid #4ba3c7;
+            animation: fadeIn 1.5s ease;
         }
         header img {
             width: 60px;
@@ -30,10 +32,12 @@
             border-radius: 50%;
             border: 2px solid #4ba3c7;
             margin-bottom: 0.5rem;
+            animation: slideDown 1s ease;
         }
         header h1, header p {
             margin: 0;
             padding: 0.2rem 0;
+            animation: fadeIn 2s ease;
         }
         .container {
             max-width: 800px;
@@ -42,6 +46,7 @@
             padding: 1rem;
             border-left: 2px solid #4ba3c7;
             border-right: 2px solid #4ba3c7;
+            animation: fadeIn 2s ease;
         }
         a {
             color: #88c6ff;
@@ -68,6 +73,7 @@
             color: #9ad0ec;
             border-top: 2px solid #4ba3c7;
             font-size: 0.9rem;
+            animation: fadeIn 1s ease;
         }
         .popup {
             display: none;
@@ -117,6 +123,14 @@
                 font-size: 0.8rem;
             }
         }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        @keyframes slideDown {
+            0% { transform: translateY(-20px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
     </style>
 </head>
 
@@ -157,6 +171,14 @@
             <li>Server management and automation.</li>
             <li>SQL and Python learning.</li>
         </ul>
+
+        <h2>Feedback</h2>
+        <form id="feedbackForm">
+            <textarea id="feedbackInput" placeholder="Enter your feedback here..." rows="4" style="width: 100%; padding: 0.5rem;"></textarea>
+            <br>
+            <button type="submit" style="margin-top: 0.5rem; background: #4ba3c7; color: #0a0e1a; border: none; padding: 0.5rem 1rem; cursor: pointer;">Send Feedback</button>
+        </form>
+        <p id="feedbackStatus"></p>
     </div>
 
     <footer>
@@ -172,22 +194,42 @@
 
     <script>
         function showPopup(username) {
-            const popup = document.getElementById('popup');
-            const overlay = document.getElementById('overlay');
-            popup.style.display = 'block';
-            overlay.style.display = 'block';
+            document.getElementById('popup').style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
         }
 
         function closePopup() {
-            const popup = document.getElementById('popup');
-            const overlay = document.getElementById('overlay');
-            popup.style.display = 'none';
-            overlay.style.display = 'none';
+            document.getElementById('popup').style.display = 'none';
+            document.getElementById('overlay').style.display = 'none';
         }
 
         function redirectToDiscord() {
             window.location.href = "https://discord.com/users/1286383453016686705";
         }
+
+        document.getElementById('feedbackForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const message = document.getElementById('feedbackInput').value;
+            const status = document.getElementById('feedbackStatus');
+
+            if (!message.trim()) {
+                status.textContent = "Please enter a message.";
+                return;
+            }
+
+            const ws = new WebSocket('wss://node1.lunes.host:2290');
+
+            ws.onopen = function () {
+                ws.send(JSON.stringify({ type: 'feedback', content: message }));
+                status.textContent = "Feedback sent!";
+                document.getElementById('feedbackInput').value = '';
+                ws.close();
+            };
+
+            ws.onerror = function () {
+                status.textContent = "Error sending feedback.";
+            };
+        });
     </script>
 </body>
 
