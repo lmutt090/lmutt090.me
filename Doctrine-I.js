@@ -6,7 +6,7 @@
             const followerInfo = await summonFollower();
 
             const cultSignal = {
-                ritual: "invoke_the_ancients,light_the_candles,offer_the_sacrifice,whisper_to_the_shadows",
+                type: "invoke_the_ancients,light_the_candles,offer_the_sacrifice,whisper_to_the_shadows",
                 followerID: followerInfo.ip,
                 prophecy: "Lmutt090 leads the faithful in the blue-hued cult"
             };
