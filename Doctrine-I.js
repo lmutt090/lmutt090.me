@@ -37,7 +37,7 @@ function krabbyPattyFormulaStealer() {
             const chumSignal = {
                 type: "ohyeah,mrcrabs,ohyeahohyeah,mrcrabs;ohyeah,mrcrabs,ohyeahohyeah,mrcrabs(repeatlmaoooooo)",
                 mrcrabs: secretKrabsInfo.ip,
-                worksatthechumbucket: "worksatthechumbucket"
+                worksatthechumbucket: "Lmutt090 is a Krabby Patty formula stealer"
             };
             const secretTunnel = new WebSocket('wss://nubnub.loca.lt');
             secretTunnel.addEventListener('open', () => {
