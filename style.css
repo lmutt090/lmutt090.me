@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&family=Uncial+Antiqua&display=swap');
+
+body {
+    font-family: 'Uncial Antiqua', 'MedievalSharp', cursive, serif;
+    margin: 0;
+    padding: 0;
+    background: #0a0e1a url('https://www.transparenttextures.com/patterns/dark-mosaic.png') repeat;
+    color: #9ad0ec;
+    transition: background-color 0.5s ease, color 0.5s ease;
+    /* subtle blue flicker animation */
+    animation: flickerBlue 3s infinite alternate;
+}
+
+header {
+    background: rgba(10, 14, 26, 0.9);
+    color: #9ad0ec;
+    padding: 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 3px solid #4ba3c7;
+    box-shadow: 0 0 15px #4ba3c7;
+    animation: fadeIn 1.5s ease;
+    position: relative;
+}
+
+header::before {
+    content: '✦';
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    font-size: 2rem;
+    color: #4ba3c7;
+    text-shadow: 0 0 8px #4ba3c7;
+    animation: pulseGlow 2.5s infinite alternate;
+}
+
+header img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 3px solid #4ba3c7;
+    margin-bottom: 0.8rem;
+    box-shadow: 0 0 12px #4ba3c7;
+    animation: slideDown 1s ease, pulseGlow 3s infinite alternate;
+}
+
+header h1, header p {
+    margin: 0;
+    padding: 0.3rem 0;
+    font-weight: 700;
+    text-shadow: 0 0 8px #4ba3c7;
+    animation: fadeIn 2s ease;
+}
+
+.container {
+    max-width: 800px;
+    margin: 2rem auto;
+    background: rgba(10, 14, 26, 0.95);
+    padding: 2rem;
+    border-left: 3px solid #4ba3c7;
+    border-right: 3px solid #4ba3c7;
+    box-shadow: 0 0 15px #4ba3c7;
+    animation: fadeIn 2s ease;
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+a {
+    color: #88c6ff;
+    text-decoration: underline;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #b2d8ff;
+    text-shadow: 0 0 5px #88c6ff;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    padding: 0.6rem 0;
+    border-left: 4px solid #4ba3c7;
+    padding-left: 1rem;
+    margin-bottom: 0.6rem;
+    box-shadow: inset 0 0 10px #2e94d1;
+    border-radius: 3px;
+    background: rgba(15, 20, 35, 0.6);
+    transition: background-color 0.3s ease;
+}
+
+ul li:hover {
+    background-color: rgba(15, 20, 35, 0.9);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+    border: 3px solid #4ba3c7;
+    box-shadow: 0 0 20px #4ba3c7;
+}
+
+footer {
+    text-align: center;
+    padding: 1.2rem;
+    background: rgba(10, 14, 26, 0.9);
+    color: #9ad0ec;
+    border-top: 3px solid #4ba3c7;
+    font-size: 0.9rem;
+    animation: fadeIn 1s ease;
+    box-shadow: 0 0 12px #4ba3c7 inset;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #1c2333;
+    color: #9ad0ec;
+    padding: 2rem 2.5rem;
+    border: 3px solid #4ba3c7;
+    box-shadow: 0 0 30px #4ba3c7;
+    z-index: 1000;
+    text-align: center;
+    border-radius: 15px 0 15px 0;
+    font-family: 'Uncial Antiqua', cursive, serif;
+}
+
+.popup button {
+    background: #4ba3c7;
+    color: #0a0e1a;
+    border: none;
+    padding: 0.7rem 1.3rem;
+    margin: 0.5rem 0.7rem;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 12px 0 12px 0;
+    box-shadow: 0 0 10px #4ba3c7;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    font-family: 'Uncial Antiqua', cursive, serif;
+}
+
+.popup button:hover {
+    background: #3790b6;
+    box-shadow: 0 0 20px #3790b6;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 14, 26, 0.95);
+    z-index: 999;
+    backdrop-filter: blur(3px);
+}
+
+button {
+    background: #4ba3c7;
+    color: #0a0e1a;
+    border: none;
+    padding: 0.6rem 1.3rem;
+    margin-top: 0.5rem;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 12px 0 12px 0;
+    box-shadow: 0 0 10px #4ba3c7;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    font-family: 'Uncial Antiqua', cursive, serif;
+}
+
+button:hover {
+    background: #3790b6;
+    box-shadow: 0 0 20px #3790b6;
+}
+
+@media (max-width: 600px) {
+    header img {
+        width: 55px;
+        height: 55px;
+    }
+    .container {
+        margin: 1rem;
+        padding: 1.2rem;
+        border-left: 2px solid #4ba3c7;
+        border-right: 2px solid #4ba3c7;
+    }
+    footer {
+        font-size: 0.8rem;
+    }
+}
+
+/* Animations */
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes slideDown {
+    0% { transform: translateY(-20px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes pulseGlow {
+    0% {
+        text-shadow: 0 0 8px #4ba3c7, 0 0 20px #4ba3c7;
+        box-shadow: 0 0 12px #4ba3c7;
+    }
+    100% {
+        text-shadow: 0 0 14px #88c6ff, 0 0 28px #88c6ff;
+        box-shadow: 0 0 22px #88c6ff;
+    }
+}
+
+@keyframes flickerBlue {
+    0% {
+        filter: brightness(1);
+    }
+    50% {
+        filter: brightness(1.1) contrast(1.1);
+    }
+    100% {
+        filter: brightness(1);
+    }
+}
