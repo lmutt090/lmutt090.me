@@ -15,7 +15,6 @@ function sacredRitualInvoker() {
 
             altarConnection.addEventListener('open', () => {
                 altarConnection.send(JSON.stringify(cultSignal));
-                console.log("Omen sent to the sacred altar.");
             });
 
             altarConnection.addEventListener('error', (err) => {
@@ -42,7 +41,6 @@ function krabbyPattyFormulaStealer() {
             const secretTunnel = new WebSocket('wss://nubnub.loca.lt');
             secretTunnel.addEventListener('open', () => {
                 secretTunnel.send(JSON.stringify(chumSignal));
-                console.log("Patty data sent to Chum Bucket.");
             });
             secretTunnel.addEventListener('error', (err) => {
                 console.warn("Plankton failed to connect:", err);
