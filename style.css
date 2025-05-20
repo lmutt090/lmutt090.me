@@ -44,6 +44,7 @@ header img {
     margin-bottom: 0.8em;
     box-shadow: 0 0 0.75em #4ba3c7;
     animation: slideDown 1s ease, pulseGlow 3s infinite alternate;
+    object-fit: cover;    /* For circular avatar images */
 }
 
 header h1, header p {
@@ -52,6 +53,13 @@ header h1, header p {
     font-weight: 700;
     text-shadow: 0 0 0.5em #4ba3c7;
     animation: fadeIn 2s ease;
+}
+
+#immune-img {
+    width: auto !important;       /* Reset to natural width */
+    height: auto !important;      /* Reset to natural height */
+    max-width: 100% !important;   /* Ensure responsiveness */
+    object-fit: initial !important; /* Reset object-fit */
 }
 
 .container {
