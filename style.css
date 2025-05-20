@@ -55,13 +55,6 @@ header h1, header p {
     animation: fadeIn 2s ease;
 }
 
-#immune-img {
-    width: auto !important;       /* Reset to natural width */
-    height: auto !important;      /* Reset to natural height */
-    max-width: 100% !important;   /* Ensure responsiveness */
-    object-fit: initial !important; /* Reset object-fit */
-}
-
 .container {
     max-width: 50em; /* 800px / 16 = 50em */
     margin: 2em auto;
@@ -110,11 +103,30 @@ ul li:hover {
 img {
     width: 1em;          /* Set width to match font size */
     height: 1em;         /* Set height to match font size */
-    margin-bottom: 1em;
+    vertical-align: text-bottom;
+    margin-bottom: 0; /* Align with text */
+    object-fit: contain;  /* Maintain aspect ratio */
+}
+
+.image-text-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5em; /* Adjust spacing as needed */
+}
+
+.parent-element {
+    line-height: 1; /* Or a specific value that works */
+}
+
+#immune-img {
+    width: auto;
+    height: auto;
+    margin-bottom: 0; /* Reset if needed */
+    vertical-align: baseline; /* Reset if needed */
+    object-fit: initial;
+    max-width: 100%;
     border: 0.1875em solid #4ba3c7;
     box-shadow: 0 0 1.25em #4ba3c7;
-    vertical-align: middle; /* Align properly with text */
-    object-fit: contain;  /* Maintain aspect ratio */
 }
 
 footer {
