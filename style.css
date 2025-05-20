@@ -100,11 +100,13 @@ ul li:hover {
 }
 
 img {
-    max-width: 100%;
-    height: auto;
+    width: 1em;          /* Set width to match font size */
+    height: 1em;         /* Set height to match font size */
     margin-bottom: 1em;
     border: 0.1875em solid #4ba3c7;
     box-shadow: 0 0 1.25em #4ba3c7;
+    vertical-align: middle; /* Align properly with text */
+    object-fit: contain;  /* Maintain aspect ratio */
 }
 
 footer {
