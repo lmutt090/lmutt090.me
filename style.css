@@ -1,3 +1,50 @@
+/* ===== Server Info Markdown Block ===== */
+.server-info-markdown {
+  background: var(--darker-bg);
+  border-left: 0.3em solid var(--accent-color);
+  box-shadow: 0 2px 12px rgba(75,163,199,0.15);
+  padding: 1.5em 2em;
+  margin: 2em 0 2em 0;
+  border-radius: 0.5em;
+  font-family: 'Consolas', 'Menlo', 'Monaco', monospace;
+  color: var(--lighter-accent);
+  animation: fadeIn 1.2s;
+}
+.server-info-markdown h2 {
+  margin-top: 0;
+  color: var(--light-accent);
+  font-size: 1.5em;
+  font-weight: bold;
+  letter-spacing: 0.03em;
+}
+.server-info-markdown ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.server-info-markdown li {
+  margin-bottom: 0.7em;
+  font-size: 1.1em;
+}
+.server-info-markdown a {
+  color: var(--accent-color);
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+.server-info-markdown a:hover {
+  color: var(--accent-hover);
+}
+.server-info-markdown .server-note {
+  display: block;
+  margin-top: 0.3em;
+  font-size: 0.98em;
+  color: var(--light-accent);
+  background: rgba(75,163,199,0.08);
+  border-left: 3px solid var(--accent-color);
+  padding: 0.5em 1em;
+  border-radius: 0.3em;
+  font-style: italic;
+}
 /* ===== Base Styles ===== */
 :root {
   --dark-bg: #0a0e1a;
