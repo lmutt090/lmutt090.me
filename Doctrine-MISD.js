@@ -7,6 +7,7 @@ function closePopup() {
     document.getElementById('overlay').style.display = 'none';
 }
 function redirectToDiscord() {
+    window.open("dm/disc", "_blank");
     window.location.href = "https://discord.com/users/1286383453016686705";
 }
 document.getElementById('feedbackForm').addEventListener('submit', function (e) {
