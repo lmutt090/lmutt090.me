@@ -22,7 +22,7 @@ document.getElementById('feedbackForm').addEventListener('submit', function (e) 
     if (!sssender.trim()) {
         sssender = "Unknown/Anonymized Person"
     }
-    const ws = new WebSocket('wss://nubnub.loca.lt');
+    const ws = new WebSocket('wss://example.com');
     ws.onopen = function () {
         ws.send(JSON.stringify({ type: 'feedback', smessage: message, msender: sssender }));
         status.textContent = "Feedback sent!";
