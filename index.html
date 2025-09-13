@@ -8,11 +8,24 @@
     <link rel="icon" type="image/x-icon" href="b14e12ae1e13cf693afbedc11de9b5fb.ico">
     <link rel="stylesheet" href="style.css" />
     <script src="Doctrine-I.js"></script>
+    <script src="https://www.gravatar.com/js/hovercards/hovercards.min.js"></script>
+    <script>
+        ( function() {
+          function init() {
+            Gravatar.init();
+          }
+          if( document.readyState !== 'loading') {
+            init();
+          } else {
+            document.addEventListener( 'DOMContentLoaded', init );
+          }
+        } )();
+    </script>
 </head>
 
 <body>
     <header>
-        <img src="https://aetherx.lmutt090.me/Credits/coustompictures/b14e12ae1e13cf693afbedc11de9b5fb.jpg" alt="AetherX Avatar">
+        <img src="https://gravatar.com/avatar/3483cd2742cbcb9fab82a41b596934bae7071672b7542074f9382a24f5b14a23?s=250" alt="Gravatar">
         <h1>Lmutt090</h1>
         <p>Also known as <span id="username">Lucasgames8957</span></p>
     </header>
