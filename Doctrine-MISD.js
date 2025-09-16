@@ -22,14 +22,11 @@ document.getElementById('feedbackForm').addEventListener('submit', function (e) 
     if (!sssender.trim()) {
         sssender = "Unknown/Anonymized Person"
     }
-    const ws = new WebSocket('wss://example.com');
-    ws.onopen = function () {
-        ws.send(JSON.stringify({ type: 'feedback', smessage: message, msender: sssender }));
-        status.textContent = "Feedback sent!";
-        document.getElementById('feedbackInput').value = '';
-        ws.close();
-    };
     ws.onerror = function (error) {
+        if (wsoffline) {
+            console.error('The server is offline')
+            status.textContent = "The server is oggline"
+        }
         console.error('WebSocket Error:', error); // Log the error to the console for debugging
         status.textContent = `Error sending feedback: ${error.message || error}`; // Display error message to the user
     };
