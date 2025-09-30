@@ -31,8 +31,27 @@
         <p>Also known as <span id="username">Lucasgames8957</span> or <span id="username">Lemme</span></p>
     </header>
     <div class="container">
-        <img id="immune-img" src="https://AetherX.lmutt090.me/Credits/coustompictures/0fb0950164ed14c57276b0dc2486a700.png">
+        <img id="immune-img" src="https://aether-x.org/Credits/coustompictures/0fb0950164ed14c57276b0dc2486a700.png">
         
+        <!-- Social Media Section (inline badges to avoid 404s) -->
+        <section id="social-media-section" style="padding:2rem 1rem;text-align:center;background:#eef6ff;border-radius:1rem;margin:2rem 0;box-shadow:0 1px 6px #0001;">
+            <h2>Follow Me</h2>
+            <!-- Twitch embed: toggleable player. Embeds require a matching `parent` hostname when served from a web server. -->
+            <div style="display:inline-block;vertical-align:middle;margin:0 1rem;text-align:left;">
+                <div style="display:flex;align-items:center;gap:0.5rem;">
+                    <span aria-hidden="true" style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;background:#6441A4;border-radius:6px;color:#fff;font-weight:700;font-family:Arial,Helvetica,sans-serif;">T</span>
+                    <button id="twitch-toggle" type="button" style="background:#6441A4;color:#fff;border:none;padding:0.4rem 0.6rem;border-radius:6px;cursor:pointer;font-weight:600;">Show Live Twitch</button>
+                </div>
+                <div id="twitch-embed-container" style="margin-top:0.5rem;max-width:640px;display:none;">
+                    <div id="twitch-embed" style="width:100%;height:360px;background:#000;"></div>
+                    <p style="font-size:0.9rem;margin:0.5rem 0 0 0;">If the embed doesn't load, <a href="https://twitch.tv/lmutt090" target="_blank" rel="noopener">open Twitch in a new tab</a>. Note: embeds require hosting with the proper parent domain.</p>
+                </div>
+            </div>
+            <a href="https://youtube.com/@Lmutt090" target="_blank" rel="noopener" style="margin:0 1rem;display:inline-flex;align-items:center;gap:0.5rem;vertical-align:middle;text-decoration:none;color:inherit;">
+                <span aria-hidden="true" style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;background:#FF0000;border-radius:6px;color:#fff;font-weight:700;font-family:Arial,Helvetica,sans-serif;">▶</span>
+                <span>YouTube</span>
+            </a>
+        </section>
         <!-- Ko-fi Support Section -->
         <section id="ko-fi-section" style="padding:2rem 1rem;text-align:center;background:#f9f9fa;border-radius:1rem;margin:2rem 0;box-shadow:0 1px 6px #0001;">
             <h2>Support Me on Ko-fi</h2>
@@ -122,6 +141,68 @@
         <button onclick="location.assign('discord.com/users/1286383453016686705')">Yes</button>
         <button onclick="closePopup()">Close</button>
     </div>
+
+    <script>
+        // Twitch embed lazy loader
+        (function(){
+            const btn = document.getElementById('twitch-toggle');
+            const container = document.getElementById('twitch-embed-container');
+            let loaded = false;
+
+            function getParentHostnames() {
+                // Twitch requires the 'parent' option to list the exact hostname(s) that will embed the player.
+                // Include the production domain and the current hostname (if different). Deduplicate the list.
+                const hosts = [];
+                if (location && location.hostname) hosts.push(location.hostname);
+                hosts.push('lmutt090.me');
+                return Array.from(new Set(hosts));
+            }
+
+            async function loadTwitchScript() {
+                return new Promise((resolve, reject) => {
+                    if (window.Twitch && window.Twitch.Embed) return resolve();
+                    const s = document.createElement('script');
+                    s.src = 'https://embed.twitch.tv/embed/v1.js';
+                    s.async = true;
+                    s.onload = () => resolve();
+                    s.onerror = () => reject(new Error('Failed to load Twitch embed script'));
+                    document.head.appendChild(s);
+                });
+            }
+
+            btn.addEventListener('click', async function(){
+                if (!loaded) {
+                    container.style.display = 'block';
+                    try {
+                        await loadTwitchScript();
+                        // When creating the embed, Twitch requires the `parent` option to include the domain(s) hosting the page.
+                        const parentHosts = getParentHostnames();
+                        // Create the embed
+                        new window.Twitch.Embed('twitch-embed', {
+                            width: '100%',
+                            height: 360,
+                            channel: 'lmutt090',
+                            parent: parentHosts
+                        });
+                        btn.textContent = 'Hide Twitch';
+                        loaded = true;
+                    } catch (err) {
+                        console.error(err);
+                        container.innerHTML = '<p>Unable to load the Twitch embed. <a href="https://twitch.tv/lmutt090" target="_blank" rel="noopener">Open Twitch in a new tab</a>.</p>';
+                    }
+                } else {
+                    // toggle visibility
+                    if (container.style.display === 'none') {
+                        container.style.display = 'block';
+                        btn.textContent = 'Hide Twitch';
+                    } else {
+                        container.style.display = 'none';
+                        btn.textContent = 'Show Live Twitch';
+                    }
+                }
+            });
+        })();
+    </script>
 
     <script src="Doctrine-MISD.js"></script>
 </body>
